@@ -1,14 +1,45 @@
 {
-    "pages": [
-        "pages/index/index"
-    ],
-    "subPackages": [],
-    "window": {
-        "navigationBarTextStyle": "black",
-        "navigationBarTitleText": "uni-app",
-        "navigationBarBackgroundColor": "#F8F8F8",
-        "backgroundColor": "#F8F8F8"
-    },
-    "usingComponents": {},
-    "sitemapLocation": "sitemap.json"
+  "pages": [
+    "pages/home/home",
+    "pages/cate/cate",
+    "pages/my/my",
+    "pages/cart/cart"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "黑马优购",
+    "navigationBarBackgroundColor": "#c00000",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "selectedColor": "#c00000",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "home",
+        "selectedIconPath": "static/tab_icons/home-active.png",
+        "iconPath": "static/tab_icons/home.png"
+      },
+      {
+        "pagePath": "pages/cate/cate",
+        "text": "cate",
+        "selectedIconPath": "static/tab_icons/cate-active.png",
+        "iconPath": "static/tab_icons/cate.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "cart",
+        "selectedIconPath": "static/tab_icons/cart-active.png",
+        "iconPath": "static/tab_icons/cart.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "my",
+        "selectedIconPath": "static/tab_icons/cart-active.png",
+        "iconPath": "static/tab_icons/cart.png"
+      }
+    ]
+  },
+  "usingComponents": {}
 }
