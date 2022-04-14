@@ -32,7 +32,6 @@
         defaultPic: 'https://img3.doubanio.com/f/movie/8dd0c794499fe925ae2ae89ee30cd225750457b4/pics/movie/celebrity-default-medium.png'
       };
     },
-   
     //给商品金额设置过滤器,保存四舍五入两位小数
     filters:{
       tofixed(num){
