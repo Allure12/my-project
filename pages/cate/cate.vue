@@ -1,7 +1,6 @@
 <template>
   <view>
     <!-- 使用自定义搜索组件 -->
-    <!-- <my-search :bgColor="'#000000'" :radius="10"></my-search> -->
     <my-search @click="gotoSearch"></my-search>
     
     <view class="scroll-view-container">
@@ -21,9 +20,7 @@
               <text>{{item3.cat_name}}</text>
             </view>
           </view>
-        </view>
-        
-       
+        </view>     
       </scroll-view>
     </view>
   </view>
@@ -58,18 +55,16 @@
       // * 获取商品分类数据
       async getScrollList(){
         const {data:res}=await uni.$http.get('/api/public/v1/categories')
-        // console.log(res)
         if(res.meta.status!=200) return uni.$showMsg()
         this.scrollList=res.message
-        this.scrollLevel2=res.message[0].children  //二级分类初始化
+        this.scrollLevel2=res.message[0].children  
         this.scrollLevel3=res.message[0].children
       },
       // 一级目录点击事件
       cateClickHandle(i){
         this.active=i
-        // 重新为二级分类赋值
         this.scrollLevel2=this.scrollList[i].children
-        this.scrollTop=this.scrollTop===0? 1:0  //优化滚动
+        this.scrollTop=this.scrollTop===0? 1:0 
       },
       //三级目录点击跳转页面
       getGoodsList(item3){

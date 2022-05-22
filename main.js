@@ -11,7 +11,7 @@ import {
 uni.$http = $http
 
 // 设置请求跟路径
-$http.baseUrl = "https://www.uinav.com"
+$http.baseUrl = "http://www.uinav.com"
 
 // 请求开始之前
 $http.beforeRequest = function(options) {
@@ -19,6 +19,14 @@ $http.beforeRequest = function(options) {
   uni.showLoading({
     title: "加载中"
   })
+  
+  // 判断请求的是否为有权限的 API 接口
+  if(options.url.indexOf('/my/')!=-1){
+    // 在请求头中添加 Token 身份认证的字段
+    options.header={
+      Authorization:store.state.m_user.token
+    }
+  }
 }
 // 请求之后
 $http.afterRequest = function(options) {

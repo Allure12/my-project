@@ -3,8 +3,7 @@
     <!-- 使用自定义搜索组件 -->
     <view class="search-box">
        <my-search @click="gotoSearch"></my-search>
-    </view>
-   
+    </view>   
     <!-- 轮播图 -->
     <swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
       <swiper-item v-for="(item,i) in picList" :key="i">
@@ -33,8 +32,7 @@
                <image :src="product.image_src" mode="widthFix" :style="{width: product.image_width+'rpx'}"></image>
              </navigator>
            </view>
-         </view>
-        
+         </view>  
        </view>
      </view>
   </view>
@@ -61,21 +59,15 @@
     methods:{
       //* 获取轮播图数据
       async getPicList(){
-        // 发起请求
         const {data:res}=await uni.$http.get('/api/public/v1/home/swiperdata')
-        // console.log(res)
-        // 请求失败
         if(res.meta.status!=200){
           return uni.$showMsg()
         }
-        // 请求成功,为picList赋值
         this.picList=res.message
-      },
-      
+      },   
       //* 获取分类导航数据
       async getNavList(){
         const {data:res}=await uni.$http.get('/api/public/v1/home/catitems')
-        // console.log(res)
         if(res.meta.status!=200){
           return uni.$showMsg()
         }
@@ -105,14 +97,12 @@
         })
         this.floorList=res.message
       },
-      
       // 搜索组件的点击事件
       gotoSearch(){
         uni.navigateTo({
           url:"../../subpkg/search/search?"
         })
-      }
-      
+      }    
     }
   }
 </script>
